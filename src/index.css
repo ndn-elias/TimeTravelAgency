@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Reset & Base ─────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: #07090f;
+    color: #f0e6d0;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.04em;
+  }
+
+  ::selection {
+    background: rgba(201, 162, 39, 0.3);
+    color: #e4c053;
+  }
+
+  /* Scrollbar élégante */
+  ::-webkit-scrollbar        { width: 6px; }
+  ::-webkit-scrollbar-track  { background: #07090f; }
+  ::-webkit-scrollbar-thumb  { background: #c9a227; border-radius: 3px; }
+}
+
+/* ─── Utilities personnalisées ─────────────────────────────── */
+@layer utilities {
+  /* Texte dégradé or */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #c9a227 0%, #e4c053 50%, #c9a227 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Texte dégradé quantique */
+  .text-quantum-gradient {
+    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Bordure dorée animée */
+  .border-gold-glow {
+    border: 1px solid rgba(201, 162, 39, 0.4);
+    box-shadow: 0 0 20px rgba(201, 162, 39, 0.1), inset 0 0 20px rgba(201, 162, 39, 0.03);
+  }
+
+  /* Fond glassmorphisme */
+  .glass {
+    background: rgba(13, 18, 32, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .glass-light {
+    background: rgba(240, 230, 208, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Effet grain de pellicule */
+  .grain::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 128px 128px;
+  }
+}
+
+/* ─── Animations CSS globales ──────────────────────────────── */
+@keyframes pulseRing {
+  0%   { transform: scale(1);   opacity: 0.8; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+@keyframes orbitRing {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes particleFloat {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0.6; }
+  33%       { transform: translateY(-30px) translateX(15px); opacity: 1; }
+  66%       { transform: translateY(10px) translateX(-10px); opacity: 0.4; }
+}
+
+/* ─── Cursor magnétique ──────────────────────────────────── */
+.magnetic-btn {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  will-change: transform;
+}
