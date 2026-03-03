@@ -18,7 +18,7 @@ const DESTINATIONS = [
     accentColor: '#e07a30',
     glowColor: 'rgba(224,122,48,0.5)',
     spots: 4,
-    photo: '../public/images/rome.png',
+    photo: '/images/rome.png',
   },
   {
     id: 'paris',
@@ -34,7 +34,7 @@ const DESTINATIONS = [
     accentColor: '#a78bfa',
     glowColor: 'rgba(167,139,250,0.5)',
     spots: 8,
-    photo: '../public/images/paris.png',
+    photo: '/images/paris.png',
   },
   {
     id: 'tokyo',
@@ -50,7 +50,7 @@ const DESTINATIONS = [
     accentColor: '#34d399',
     glowColor: 'rgba(52,211,153,0.5)',
     spots: 2,
-    photo: '../public/images/tokyo.png',
+    photo: '/images/tokyo.png',
   },
 ];
 
